@@ -10,7 +10,13 @@ const displayPhones = (phones, isShowAll) => {
 
     // clear phone container cards before adding new cards
     phoneContainer.textContent = ''
-
+    // show not found
+    const showNotFound = document.getElementById('show-not-found');
+    if (phones.length == 0) {
+        showNotFound.classList.remove('hidden');
+    } else {
+        showNotFound.classList.add('hidden');
+    }
     // display show all button if there are more than 12 phones
     const showAllContainer = document.getElementById('show-all-container');
     if (phones.length > 12 && !isShowAll) {
@@ -61,25 +67,26 @@ const showPhoneDetails = (phone) => {
 
     const showDetailContainer = document.getElementById('show-detail-container');
 
+
     showDetailContainer.innerHTML = `<div class="bg-gray-100 flex items-center justify-center py-5">
     <img src="${phone.image}"  alt="phone">
 </div>
-                <h3 class="text-3xl font-bold">${phone?.name ?? 'not provided'}</h3>
+                <h3 class="text-3xl font-bold">${phone?.name || 'not provided'}</h3>
                 <p class="font-medium text-lg text-gray-600"><span class="font-bold text-xl text-black">Storage:</span>
-                    ${phone?.mainFeatures?.storage ?? 'not provided'}</p>
+                    ${phone?.mainFeatures?.storage || 'not provided'}</p>
                 <p class="font-medium text-lg text-gray-600"><span class="font-bold text-xl text-black">Display Size:</span>
-                    ${phone?.mainFeatures?.displaySize ?? 'not provided'}</p>
+                    ${phone?.mainFeatures?.displaySize || 'not provided'}</p>
                 <p class="font-medium text-lg text-gray-600"><span class="font-bold text-xl text-black">Chipset:</span>
-                    ${phone?.mainFeatures?.chipSet ?? 'not provided'}</p>
+                    ${phone?.mainFeatures?.chipSet || 'not provided'}</p>
                 <p class="font-medium text-lg text-gray-600"><span class="font-bold text-xl text-black">Memory:</span>
-                    ${phone?.mainFeatures?.memory ?? 'not provided'}</p>
-                <p class="font-medium text-lg text-gray-600"><span class="font-bold text-xl text-black">Slug:</span> ${phone?.slug ?? 'not provided'}
+                    ${phone?.mainFeatures?.memory || 'not provided'}</p>
+                <p class="font-medium text-lg text-gray-600"><span class="font-bold text-xl text-black">Slug:</span> ${phone?.slug || 'not provided'}
                 </p>
                 <p class="font-medium text-lg text-gray-600"><span class="font-bold text-xl text-black">Release Date:
-                    </span>${phone?.releaseDate ?? 'not provided'}</p>
-                <p class="font-medium text-lg text-gray-600"><span class="font-bold text-xl text-black">Brand:</span> ${phone?.brand ?? 'not provided'}
+                    </span>${phone?.releaseDate || 'not provided'}</p>
+                <p class="font-medium text-lg text-gray-600"><span class="font-bold text-xl text-black">Brand:</span> ${phone?.brand || 'not provided'}
                 </p>
-                <p class="font-medium text-lg text-gray-600"><span class="font-bold text-xl text-black">GPS:</span> ${phone?.others?.GPS ?? 'not provided'}
+                <p class="font-medium text-lg text-gray-600"><span class="font-bold text-xl text-black">GPS:</span> ${phone?.others?.GPS || 'not provided'}
                 </p> `
 
 
@@ -108,4 +115,4 @@ const handleShowAll = () => {
     handleSearch(true);
 }
 
-loadPhone(13);
+
