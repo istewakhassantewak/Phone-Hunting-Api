@@ -18,8 +18,13 @@
             <input id="search-field" type="text" placeholder="Search..." class="input" />
             <button onclick="handleSearch()" class="btn btn-accent">Search</button>
         </section>
+
         <!-- search resuult -->
         <section>
+            <!-- spiner or loader -->
+            <div id="loading-spinner" class="text-center my-40 hidden">
+                <span class="loading loading-infinity text-primary loading-lg"></span>
+            </div>
             <div id="phone-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             </div>
             <!-- show all buttons -->
