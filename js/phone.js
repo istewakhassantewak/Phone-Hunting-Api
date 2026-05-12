@@ -115,4 +115,4 @@ const handleShowAll = () => {
     handleSearch(true);
 }
 
-
+loadPhone("iphone", true)
